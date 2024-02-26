@@ -1,0 +1,84 @@
+{
+    "name": "MigScript",
+    "scopeName": "source.migscript",
+    "fileTypes": ["mig"],
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#font"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "match": "//.*$",
+                    "captures": {
+                        "0": {
+                            "name": "comment.line.double-slash.migscript"
+                        }
+                    }
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "match": "'(?:[^'\\\\]|\\\\.)*'",
+                    "captures": {
+                        "0": {
+                            "name": "string.quoted.single.migscript"
+                        }
+                    }
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "match": "\\b(let|writl)\\b",
+                    "captures": {
+                        "0": {
+                            "name": "keyword.migscript"
+                        }
+                    }
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "match": "\\b\\w+\\b",
+                    "captures": {
+                        "0": {
+                            "name": "variable.other.migscript"
+                        }
+                    }
+                }
+            ]
+        },
+        "font": {
+            "patterns": [
+                {
+                    "match": "\\.font\\([^\\)]+\\)",
+                    "captures": {
+                        "0": {
+                            "name": "meta.function-call.migscript"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "migscript",
+  "displayName": "MigScript",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "MiguelDraws",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "migscript",
+      "aliases": ["MigScript", "migscript"],
+      "extensions": [".mig"],
+      "configuration": "./language-configuration.json",
+      "fileIcons": {
+        "mig": "./icons/mig_icon.svg"
+      }
+    }],
+    "iconThemes": [
+      {
+          "id": "mig-icon-theme",
+          "path": "./icons/mig_icon.svg"
+      }
+  ],
+    "grammars": [{
+      "language": "migscript",
+      "scopeName": "source.json",
+      "path": "./syntaxes/migscript.tmLanguage.json"
+    }]
+  }
+}
