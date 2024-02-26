@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MigScript Playground with Monaco Editor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Load the Monaco editor library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        /* Add your custom styles here */
+        #editor {
+            height: 200px; /* Adjust height for mobile devices */
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">
+                        <img src="../img/logo.png" alt="Logo" width="39" class="d-inline-block align-text-top">
+                        MigScript
+                      </a>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Create a container for the editor -->
+                <div id="editor"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button onclick="executeMigScript()" class="btn btn-primary btn-block mt-3">Run MigScript</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="mt-4">Output</h3>
+                <div id="output" class="border p-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Monaco editor
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            var editor = monaco.editor.create(document.getElementById('editor'), {
+                value: "// Write your MigScript code here...",
+                language: 'javascript',
+                theme: 'vs-dark' // Set the dark theme
+            });
+
+            // Set the editor to resize when the window resizes
+            window.addEventListener('resize', function() {
+                editor.layout();
+            });
+        });
+
+        function executeMigScript() {
+            // Get MigScript code from the editor
+            var migScriptCode = editor.getValue();
+
+            // Simulate executing MigScript code (replace with actual execution logic)
+            var output = runMigScript(migScriptCode);
+
+            // Display the output
+            document.getElementById('output').innerText = output;
+        }
+
+        // Sample function to simulate MigScript execution
+        function runMigScript(code) {
+            // You can implement actual MigScript execution logic here
+            // For demonstration, simply return the code itself
+            return "Output: " + code;
+        }
+    </script>
+</body>
+</html>
