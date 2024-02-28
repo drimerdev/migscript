@@ -5,3 +5,7 @@
 ## 💭 MigJS
 
 * [🏠 Home](migjs/home.md)
+
+## 😎 Examples
+
+* [Hello World Example](examples/hello-world-example.md)
